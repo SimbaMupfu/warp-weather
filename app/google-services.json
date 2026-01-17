@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "818971344944",
+    "project_id": "warp-weather-app",
+    "storage_bucket": "warp-weather-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818971344944:android:a3bbf1ba55c8fee267adf5",
+        "android_client_info": {
+          "package_name": "inc.sims.hustles.warpweather"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAeP0uIy7kKfHAVQRTu2TgcxeMRlg0ndk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
