@@ -41,3 +41,7 @@ object DependencyContainer {
         WeatherRepositoryImpl(weatherApiService)
     }
 }
+
+fun provideWeatherRepository(): WeatherRepository {
+    return DependencyContainer.weatherRepository
+}
