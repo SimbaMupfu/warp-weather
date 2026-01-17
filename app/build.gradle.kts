@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.crashlytics)
 }
 
 val localProperties = Properties()
@@ -76,6 +78,9 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.coil)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
     testImplementation(libs.junit)
     testImplementation(libs.bundles.testing)
     androidTestImplementation(libs.androidx.junit)
