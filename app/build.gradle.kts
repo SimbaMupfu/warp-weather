@@ -1,8 +1,18 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { localProperties.load(it) }
+}
+
+val apiKey = localProperties.getProperty("API_KEY") ?: ""
 
 android {
     namespace = "inc.sims.hustles.warpweather"
@@ -18,17 +28,17 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
         debug {
-            val apiKey = project.findProperty("API_KEY") as String? ?: ""
-            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
         }
 
         release {
-            val apiKey = project.findProperty("API_KEY") as String? ?: ""
-            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
