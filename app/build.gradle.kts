@@ -21,7 +21,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            val apiKey = project.findProperty("API_KEY") as String? ?: ""
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+        }
+
         release {
+            val apiKey = project.findProperty("API_KEY") as String? ?: ""
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
