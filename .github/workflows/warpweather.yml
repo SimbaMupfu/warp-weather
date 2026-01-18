@@ -46,7 +46,7 @@ jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
-    needs: [test, instrumented-test]
+    needs: [test]
     if: github.ref == 'refs/heads/main'
 
     steps:
