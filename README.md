@@ -147,9 +147,14 @@ The app follows **Model-View-ViewModel (MVVM)** architecture pattern for clean s
   WeatherResponse (DTO) -> toWeather() -> Weather (Domain Model)
   ```
 
+
 ## Temperature Display
 
 The app displays temperature in **Celsius (°C)** by default. The API is configured with `units=metric`.
+
+## Crash Reports
+
+The app has Firebase Crashlytics to monitor the app's performance and report errors experienced.
 
 ## CI/CD
 
