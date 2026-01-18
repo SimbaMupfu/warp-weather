@@ -28,7 +28,7 @@ fun SplashScreen(
     var startExplosion by remember { mutableStateOf(false) }
 
     val rotation by animateFloatAsState(
-        targetValue = if (startAnimation) 1080f else 0f, // 3 full rotations
+        targetValue = if (startAnimation) 1080f else 0f,
         animationSpec = tween(
             durationMillis = 2000,
             easing = FastOutSlowInEasing

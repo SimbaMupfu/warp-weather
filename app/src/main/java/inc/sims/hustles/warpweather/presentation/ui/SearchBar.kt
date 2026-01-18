@@ -29,7 +29,7 @@ fun SearchBar(
         onValueChange = onCityInputChange,
         modifier = modifier.fillMaxWidth(),
         label = { Text("Enter city name") },
-        placeholder = { Text("e.g., London, Paris, Tokyo") },
+        placeholder = { Text("e.g., Pretoria, Harare, Midrand") },
         trailingIcon = {
             IconButton(
                 onClick = {
