@@ -163,4 +163,4 @@ GitHub Actions workflow included:
 **Simba** - Warp Weather App Developer
 
 ## Demo
-![Demo](https://www.youtube.com/shorts/CsX6OrZEAk0)
+[Demo](https://www.youtube.com/shorts/CsX6OrZEAk0)
