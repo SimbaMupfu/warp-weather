@@ -162,4 +162,5 @@ GitHub Actions workflow included:
 ## Author
 **Simba** - Warp Weather App Developer
 
-![Demo](assets/warpweatherapp.webm)
+## Demo
+![Demo](https://www.youtube.com/shorts/CsX6OrZEAk0)
