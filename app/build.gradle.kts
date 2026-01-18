@@ -1,8 +1,20 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.crashlytics)
 }
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { localProperties.load(it) }
+}
+
+val apiKey = localProperties.getProperty("API_KEY") ?: ""
 
 android {
     namespace = "inc.sims.hustles.warpweather"
@@ -18,17 +30,17 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
     }
 
     buildTypes {
         debug {
-            val apiKey = project.findProperty("API_KEY") as String? ?: ""
-            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
         }
 
         release {
-            val apiKey = project.findProperty("API_KEY") as String? ?: ""
-            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -41,6 +53,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     composeOptions {
@@ -65,6 +78,9 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.coil)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
     testImplementation(libs.junit)
     testImplementation(libs.bundles.testing)
     androidTestImplementation(libs.androidx.junit)
@@ -73,4 +89,5 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    testImplementation(kotlin("test"))
 }
